@@ -130,7 +130,7 @@ _To get a local copy up and running follow these simple steps._
 ## Roadmap
 
 Veja as [questões abertas](https://github.com/leogimenes/projeto_nlw_05/issues) para uma lista de recursos propostos (e problemas conhecidos).
-_See the for a list of proposed features (and known issues)._
+_See the [open issues](https://github.com/leogimenes/projeto_nlw_05/issues) for a list of proposed features (and known issues)._
 
 <!-- LICENSE -->
 
