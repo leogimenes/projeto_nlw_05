@@ -168,15 +168,17 @@ Project Link: [https://github.com/leogimenes/projeto_nlw_05](https://github.com/
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/issues/leogimenes/projeto_nlw_05
-[contributors-url]: https://github.com/leogimenes/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/leogimenes/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/leogimenes/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/leogimenes/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/leogimenes/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/leogimenes/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/leogimenes/repo/issues
-[license-shield]: https://img.shields.io/github/license/leogimenes/repo.svg?style=for-the-badge
-[license-url]: https://github.com/leogimenes/repo/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/leogimenes
+[contributors-shield]: https://img.shields.io/github/contributors/leogimenes/projeto_nlw_05.svg?style=for-the-badge
+[contributors-url]: https://github.com/leogimenes/projeto_nlw_05/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/leogimenes/projeto_nlw_05.svg?style=for-the-badge
+[forks-url]: https://github.com/leogimenes/projeto_nlw_05/network/members
+[stars-shield]: https://img.shields.io/github/stars/leogimenes/projeto_nlw_05.svg?style=for-the-badge
+[stars-url]: https://github.com/leogimenes/projeto_nlw_05/stargazers
+[issues-shield]: https://img.shields.io/github/issues/leogimenes/projeto_nlw_05.svg?style=for-the-badge
+[issues-url]: https://github.com/leogimenes/projeto_nlw_05/issues
+[license-shield]: https://img.shields.io/github/license/leogimenes/projeto_nlw_05.svg?style=for-the-badge
+[license-url]: https://github.com/leogimenes/projeto_nlw_05/blob/master/LICENSE.txt
+
+> > > > > > > 3a3a8105238741366efa1eb71c2c63aa91643fd8
+> > > > > > > [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+> > > > > > > [linkedin-url]: https://linkedin.com/in/leonardo-santos-gimenes
