@@ -168,7 +168,7 @@ Project Link: [https://github.com/leogimenes/projeto_nlw_05](https://github.com/
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/leogimenes/repo.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/issues/leogimenes/projeto_nlw_05
 [contributors-url]: https://github.com/leogimenes/repo/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/leogimenes/repo.svg?style=for-the-badge
 [forks-url]: https://github.com/leogimenes/repo/network/members
