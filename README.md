@@ -178,4 +178,6 @@ Project Link: [https://github.com/leogimenes/projeto_nlw_05](https://github.com/
 [issues-url]: https://github.com/leogimenes/projeto_nlw_05/issues
 [license-shield]: https://img.shields.io/github/license/leogimenes/projeto_nlw_05.svg?style=for-the-badge
 [license-url]: https://github.com/leogimenes/projeto_nlw_05/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/leonardo-santos-gimenes
+[product-screenshot]: images/screenshot.png
