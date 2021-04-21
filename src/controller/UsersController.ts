@@ -1,20 +1,17 @@
 import { Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
 import { UsersRepository } from "../repositories/UsersRepository";
+import { UsersService } from "../services/UsersService";
 
 class UsersController {
-  async create(req: Request, res: Response) {
+  async create(req: Request, res: Response): Promise<Response> {
     const { email } = req.body;
 
-    const usersRepository = getCustomRepository(UsersRepository);
+    const usersService = new UsersService();
 
-    const users = usersRepository.create({
-      email,
-    });
+    const user = await usersService.create(email);
 
-    await usersRepository.save(users);
-
-    return res.json(users);
+    return res.json(user);
   }
 }
 
