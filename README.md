@@ -89,7 +89,6 @@ _Real-time chat using WebSocket made at NextLevelWeek from Rocketseat._
 
 - [Node.JS](https://nodejs.org/en/)
 - [TypeScript](https://www.typescriptlang.org/)
-- [WebSocket](https://github.com/theturtle32/WebSocket-Node)
 - [ExpressJS](https://expressjs.com/)
 - [TypeORM](https://typeorm.io/)
 - [SQLite](https://www.sqlite.org/)
