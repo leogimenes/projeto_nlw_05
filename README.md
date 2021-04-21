@@ -30,7 +30,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/leogimenes/projeto_nlw_05">
-    <img src="images/rocket_chat.png" alt="Logo" width="192" height="108">
+    <img src="images/rocket_chat.png" alt="Logo" width="240" height="135">
   </a>
 
   <h3 align="center">Chat Real-time NLW</h3>
