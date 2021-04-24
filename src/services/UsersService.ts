@@ -32,11 +32,6 @@ class UsersService {
   async findByEmail(email: string) {
     const user = await this.usersRepository.findOne({ email });
 
-    //Se existir, retornar user
-    if (!user) {
-      throw new Error("User not found!");
-    }
-
     return user;
   }
 }
