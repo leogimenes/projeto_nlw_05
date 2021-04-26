@@ -16,12 +16,12 @@
     <div class="chat chat_support" id="chat_in_support">
       <div class="in_support_header">
         <span>Em suporte ... </span>
-        <div class="icon_close" onclick="closeChat();">
+        <div class="icon_close" id="close_chat_in_support">
           <img src="/images/close.png" />
         </div>
       </div>
 
-      <div class="text_support">
+      <div class="text_support" id="text_support">
         <script id="message-user-template" type="text/template">
           <div class="client">
             <span class="name">{{email}}</span>
@@ -56,7 +56,7 @@
     <div class="chat chat_support" id="chat_help">
       <div class="in_support_header">
         <span>Iniciar um chat de suporte</span>
-        <div class="icon_close" onclick="closeChat();">
+        <div class="icon_close" id="close_chat">
           <img src="/images/close.png" />
         </div>
       </div>
@@ -89,7 +89,7 @@
     </div>
 
     <div>
-      <button class="btn_support" id="btn_support" onclick="openChat();">
+      <button class="btn_support" id="btn_support" >
         <img src="/images/chat.png" /> Suporte
       </button>
     </div>
@@ -97,8 +97,7 @@
 
   <script>
     onLoad();
-    const chat = document.getElementById("chat_help");
-
+    
     function onLoad() {
       fetch("http://localhost:3333/settings/admin").then((result) =>
         result.json().then((response) => {
@@ -108,14 +107,6 @@
           }
         })
       );
-    }
-
-    function openChat() {
-      chat.style.display = "block";
-    }
-
-    function closeChat() {
-      chat.style.display = "none";
     }
 
     function keyUpTextHelp(event) {

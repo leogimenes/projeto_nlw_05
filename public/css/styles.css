@@ -126,7 +126,7 @@ body {
 
 .text_support {
   border: 1px solid #cec9c9;
-  max-height: 500px;
+  max-height: 400px;
   overflow-y: scroll;
   /* border-bottom: 0px; */
 }
@@ -156,6 +156,7 @@ body {
   height: 34px;
   align-items: center;
   width: 252px;
+  border-radius: 5px;
 }
 
 .send_message_button {
@@ -185,6 +186,22 @@ body {
   border-radius: 4px;
 
   resize: none;
+}
+
+.login {
+  display: grid;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 34px;
+}
+
+.login input {
+  border: 1px solid #dddddd;
+  box-sizing: border-box;
+  border-radius: 4px;
+  height: 42px;
+  width: 290px;
+  margin: 5px;
 }
 
 .first_email {
@@ -218,6 +235,29 @@ input[type="text"]:focus {
 
 .btn_start_chat:hover {
   opacity: 0.8;
+}
+
+.btn_login {
+  width: 121px;
+  height: 40px;
+
+  background: #8257e6;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.btn_login:hover {
+  opacity: 0.8;
+}
+
+.btn_login_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 .btn_cancel {

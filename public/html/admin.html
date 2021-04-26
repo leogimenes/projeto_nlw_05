@@ -14,8 +14,16 @@
   </head>
 
   <body>
+    <div id="admin_identification">
+    </div>
+    <script id="admin_identification_template" type="x-tmpl-mustache">
+      <div id="{{username}}">
+        <span id="admin_id"> Atendente: {{username}}</span>
+      </div>
+    </script>
+    
     <div id="list_users"></div>
-
+    
     <script id="template" type="x-tmpl-mustache">
       <div id="user{{id}}">
           <span class="email">Email: {{email}}</span>

@@ -2,6 +2,32 @@ let socket_admin_id = null;
 let emailUser = null;
 let socket = null;
 
+document.querySelector("#btn_support").addEventListener("click", (event) =>{
+    const chat = document.getElementById("chat_help");
+    const chatInSupport = document.getElementById("chat_in_support");
+    if((chat.style.display == "block" ) || (chatInSupport.style.display == "block")){
+        chat.style.display = "none";
+        chatInSupport.style.display = "none";
+    } else {
+        if(!socket){
+            chat.style.display = "block";
+        } else {
+            chatInSupport.style.display = "block";
+        }
+    }
+    
+})
+
+document.querySelector("#close_chat_in_support").addEventListener("click", (event) => {
+    const chatInSupport = document.getElementById("chat_in_support");
+    chatInSupport.style.display = "none";
+})
+
+document.querySelector("#close_chat").addEventListener("click", (event) => {
+    const chat = document.getElementById("chat_help");
+    chat.style.display = "none";
+})
+
 document.querySelector("#start_chat").addEventListener("click", (event) => {
     socket = io();
 
@@ -48,8 +74,9 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
 
                 document.getElementById("messages").innerHTML += rendered
             }
-
         });
+        const messageBody = document.getElementById("text_support");
+        messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
     })
 
     socket.on("admin_send_to_client", (message) => {
@@ -62,6 +89,8 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
         })
 
         document.getElementById("messages").innerHTML += rendered;
+        const messageBody = document.getElementById("text_support");
+        messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
     })
 });
 
@@ -81,8 +110,10 @@ document.querySelector("#send_message_button").addEventListener("click", (event)
         message: text.value,
         email: emailUser
     })
-
+    text.value = "";
     document.getElementById("messages").innerHTML += rendered;
+    const messageBody = document.getElementById("text_support");
+    messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
 });
 
 
