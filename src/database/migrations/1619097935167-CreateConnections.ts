@@ -55,10 +55,23 @@ export class CreateConnections1619097935167 implements MigrationInterface {
         onUpdate: "SET NULL",
       })
     );
+
+    await queryRunner.createForeignKey(
+      "connections",
+      new TableForeignKey({
+        name: "FKConnectionAdmin",
+        referencedTableName: "settings",
+        referencedColumnNames: ["id"],
+        columnNames: ["admin_id"],
+        onDelete: "SET NULL",
+        onUpdate: "SET NULL",
+      })
+    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropForeignKey("connections", "FKConnectionUser");
+    await queryRunner.dropForeignKey("connections", "FKConnectionAdmin");
     await queryRunner.dropTable("connections");
   }
 }

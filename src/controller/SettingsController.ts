@@ -3,12 +3,16 @@ import { SettingsService } from "../services/SettingsService";
 
 class SettingsController {
   async create(req: Request, res: Response) {
-    const { chat, username } = req.body;
+    const { username, password, chat } = req.body;
 
     const settingsService = new SettingsService();
 
     try {
-      const settings = await settingsService.create({ chat, username });
+      const settings = await settingsService.create({
+        username,
+        password,
+        chat,
+      });
 
       return res.json(settings);
     } catch (error) {
@@ -30,13 +34,17 @@ class SettingsController {
 
   async update(request: Request, response: Response) {
     const { username } = request.params;
-    const { chat } = request.body;
+    const { chat, socket_id } = request.body;
 
     const settingsService = new SettingsService();
 
-    const settings = await settingsService.update(username, chat);
-
-    return response.json(settings);
+    if (!socket_id) {
+      await settingsService.updateChat(username, chat);
+      return response.send({ message: "Chat settings updated" });
+    } else {
+      await settingsService.updateSocketID(username, socket_id);
+      return response.send({ message: "Admin socket id updated" });
+    }
   }
 }
 

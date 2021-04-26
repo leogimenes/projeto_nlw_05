@@ -4,8 +4,10 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   PrimaryColumn,
+  BeforeInsert,
+  BeforeUpdate,
 } from "typeorm";
-
+import bcrypt from "bcryptjs";
 import { v4 as uuid } from "uuid";
 
 @Entity("settings")
@@ -15,6 +17,12 @@ class Setting {
 
   @Column()
   username: string;
+
+  @Column()
+  password: string;
+
+  @Column()
+  socket_id: string;
 
   @Column()
   chat: boolean;
@@ -29,6 +37,12 @@ class Setting {
     if (!this.id) {
       this.id = uuid();
     }
+  }
+
+  @BeforeInsert()
+  @BeforeUpdate()
+  hashPassword() {
+    this.password = bcrypt.hashSync(this.password, 8);
   }
 }
 

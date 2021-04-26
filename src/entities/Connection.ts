@@ -10,13 +10,15 @@ import {
 
 import { v4 as uuid } from "uuid";
 import { User } from "./User";
+import { Setting } from "./Setting";
 
 @Entity("connections")
 class Connection {
   @PrimaryColumn()
   id: string;
 
-  @Column()
+  @JoinColumn({ name: "admin_id" })
+  @ManyToOne(() => Setting)
   admin_id: string;
 
   @Column()
