@@ -1,10 +1,9 @@
 const socket = io();
 let connectionsUsers = [];
+let connectionInSupport = [];
 
-socket.on("admin_list_all_users", (connections) => {
+socket.on("admin_list_all_users", connections => {
   connectionsUsers = connections;
-  
-  document.getElementById('list_users').innerHTML = "";
 
   let template = document.getElementById("template").innerHTML;
 
@@ -23,6 +22,8 @@ function call(id) {
 
   const connection = connectionsUsers.find(connection => connection.socket_id === id)
 
+  connectionInSupport.push(connection);
+
   const template = document.getElementById("admin_template").innerHTML;
 
   const rendered = Mustache.render(template, {
@@ -33,7 +34,7 @@ function call(id) {
   document.getElementById("supports").innerHTML += rendered;
 
   const params = {
-    user_id: connection.user_id
+    user_id: connection.user_id 
   }
 
   socket.emit("admin_user_in_support", params);
@@ -64,6 +65,7 @@ function call(id) {
 
       divMessages.appendChild(createDiv);
     });
+    divMessages.scrollTop = divMessages.scrollHeight - divMessages.clientHeight;
   });
 }
 
@@ -88,10 +90,11 @@ function sendMessage(id) {
   divMessages.appendChild(createDiv);
 
   text.value = "";
+  divMessages.scrollTop = divMessages.scrollHeight - divMessages.clientHeight;
 }
 
-socket.on("admin_receive_message", data => {
-  const connection = connectionsUsers.find(connection => connection.socket_id = data.socket_id);
+socket.on("admin_receive_message", (data) => {
+  const connection = connectionInSupport.find(connection => connection.socket_id === data.socket_id);
   const divMessages = document.getElementById(
     `allMessages${connection.user_id}`
   )
@@ -105,4 +108,5 @@ socket.on("admin_receive_message", data => {
   ).format("DD/MM/YYYY HH:mm:ss")}</span>`;
 
   divMessages.appendChild(createDiv);
+  divMessages.scrollTop = divMessages.scrollHeight - divMessages.clientHeight;
 })
