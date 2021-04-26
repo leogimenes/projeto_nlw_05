@@ -1,4 +1,4 @@
-import express, { response } from "express";
+import express, { request } from "express";
 import { createServer } from "http";
 import { Server, Socket } from "socket.io";
 import "./database";
@@ -20,6 +20,10 @@ app.get("/pages/admin", (req, res) => {
   return res.render("html/admin.html");
 });
 
+app.get("/", (req, res) => {
+  return res.render("html/login.html");
+});
+
 const http = createServer(app); // Criando protocolo http
 const io = new Server(http); // Criando protocolo ws
 
@@ -28,6 +32,7 @@ io.on("connection", (socket: Socket) => {
 });
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 
