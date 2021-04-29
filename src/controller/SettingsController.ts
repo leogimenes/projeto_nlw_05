@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 import { SettingsService } from "../services/SettingsService";
 
 class SettingsController {
+  index(req: Request, res: Response) {
+    return res.render("html/admin.html");
+  }
   async create(req: Request, res: Response) {
     const { username, password, chat } = req.body;
 

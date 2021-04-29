@@ -1,4 +1,5 @@
 import express, { request } from "express";
+import cookieParser from "cookie-parser";
 import { createServer } from "http";
 import { Server, Socket } from "socket.io";
 import "./database";
@@ -16,9 +17,9 @@ app.get("/pages/client", (req, res) => {
   return res.render("html/client.html");
 });
 
-app.get("/pages/admin", (req, res) => {
-  return res.render("html/admin.html");
-});
+// app.get("/pages/admin", (req, res) => {
+//   return res.render("html/admin.html");
+// });
 
 app.get("/", (req, res) => {
   return res.render("html/login.html");
@@ -31,6 +32,7 @@ io.on("connection", (socket: Socket) => {
   console.log("Se conectou", socket.id);
 });
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -13,21 +13,22 @@ class AuthController {
     const settings = await settingsService.findByUsername(username);
 
     if (!settings) {
-      response.status(401);
+      return response.status(401).send({ message: "Invalid username" });
     }
 
     const isValidPassword = await bcrypt.compare(password, settings.password);
 
     if (!isValidPassword) {
-      response.status(401);
+      return response.status(401).send({ message: "Invalid password" });
     }
 
-    const token = jwt.sign({ id: settings.id }, authConfig.secret, {
+    const mid = jwt.sign({ id: settings.id }, authConfig.secret, {
       expiresIn: "1d",
     });
 
-    delete settings.password;
+    const token = `Bearer ${mid}`;
 
+    delete settings.password;
     return response.json({
       settings,
       token,

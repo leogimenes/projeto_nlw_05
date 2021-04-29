@@ -2,9 +2,15 @@ import jwt from "jsonwebtoken";
 import authConfig from "../config/auth";
 import { NextFunction, Request, Response } from "express";
 
+interface TokenPayload {
+  id: string;
+  iat: number;
+  exp: number;
+}
+
 class Authenticate {
   verifyToken(request: Request, response: Response, next: NextFunction) {
-    const authHeader = request.headers.authorization;
+    const authHeader = request.cookies.token;
 
     if (!authHeader)
       return response.status(401).send({ error: "No token provided" });
@@ -19,11 +25,16 @@ class Authenticate {
     if (!/^Bearer$/i.test(scheme))
       return response.status(401).send({ error: "Token malformatted" });
 
-    jwt.verify(token, authConfig.secret, (err, decoded) => {
-      if (err) return response.status(401).send({ error: "Token invalid" });
-      //request.body.username = decoded.id;
+    try {
+      const data = jwt.verify(token, authConfig.secret);
+
+      const { id } = data as TokenPayload;
+      request.settingsId = id;
+
       return next();
-    });
+    } catch {
+      return response.sendStatus(401);
+    }
   }
 }
 
